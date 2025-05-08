@@ -12,6 +12,7 @@ class RouteNames {
   static const forgot_password_code = "/forgot_password_code_page";
   static const create_new_password = "/new_password_page";
   static const home_search = "/home_search_page";
-  static const otp_confirm = 'otp_confirmation_page';
+  static const otp_confirm = '/otp_confirmation_page';
+  static const bottom_nav_bar = '/bottom_nav_bar_page';
 
 }

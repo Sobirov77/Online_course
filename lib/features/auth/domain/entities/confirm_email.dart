@@ -1,6 +1,6 @@
 class ConfirmEmail {
- final String access_token;
- final String refresh_token;
+  final String accessToken;
+  final String refreshToken;
 
-  ConfirmEmail({required this.access_token, required this.refresh_token});
+  ConfirmEmail({required this.accessToken, required this.refreshToken});
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:real_project/core/constants/colors.dart';
+import 'package:real_project/features/home/presentation/widgets/home/big_container.dart';
 import 'package:real_project/features/home/presentation/widgets/home/home_filter.dart';
 import 'package:real_project/features/home/presentation/widgets/home/textfield.dart';
 import 'package:real_project/features/home/presentation/widgets/home/top_mentors.dart';
@@ -129,7 +130,33 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   HomeFilter(),
-
+                  SizedBox(height: 20.h),
+                  BigContainer(
+                    category: "3D Design",
+                    title: "3D Design Illustration",
+                    imageUrl: "assets/home/course_1.png",
+                    price: 48,
+                    oldPrice: 80,
+                    rating: 4.8,
+                    students: 8289,
+                  ),
+                  BigContainer(
+                    category: "Entrepeneurship",
+                    title: "Digital Entrepreneur",
+                    imageUrl: "assets/home/course_2.png",
+                    price: 39,
+                    rating: 4.9,
+                    students: 6182,
+                  ),
+                  BigContainer(
+                    category: "UI/UX Design",
+                    title: "Learn UX User Perso",
+                    imageUrl: "assets/home/course_3.png",
+                    price: 42,
+                    oldPrice: 75,
+                    rating: 4.7,
+                    students: 7938,
+                  ),
                 ],
               ),
             ),

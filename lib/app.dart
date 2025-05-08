@@ -5,8 +5,15 @@ import 'package:real_project/core/routes/route_generator.dart';
 import 'package:real_project/core/routes/route_names.dart';
 import 'package:real_project/features/auth/presentation/bloc/confirm/confirm_bloc.dart';
 import 'package:real_project/features/auth/presentation/bloc/register/register_bloc.dart';
+import 'package:real_project/features/auth/presentation/bloc/reset_new_password/new_password_bloc.dart';
+import 'package:real_project/features/auth/presentation/bloc/reset_password/reset_password_bloc.dart';
 
 import 'core/di/service_locator.dart';
+import 'features/home/presentation/bloc/category/category_bloc.dart';
+import 'features/home/presentation/bloc/courses/courses_bloc.dart';
+import 'features/home/presentation/bloc/mentors/mentors_bloc.dart';
+import 'features/home/presentation/bloc/search/search_bloc.dart';
+import 'features/home/presentation/bloc/top_mentors/top_mentors_bloc.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,6 +26,17 @@ class MyApp extends StatelessWidget {
         BlocProvider<ConfirmEmailBloc>(
           create: (context) => sl<ConfirmEmailBloc>(),
         ),
+        BlocProvider<ResetPasswordBloc>(
+          create: (context) => sl<ResetPasswordBloc>(),
+        ),
+        BlocProvider<NewPasswordBloc>(
+          create: (context) => sl<NewPasswordBloc>(),
+        ),
+        BlocProvider<TopMentorsBloc>(create: (context) => sl<TopMentorsBloc>()),
+        BlocProvider<MentorBloc>(create: (context) => sl<MentorBloc>()),
+        BlocProvider<CoursesBloc>(create: (context) => sl<CoursesBloc>()),
+        BlocProvider<CategoryBloc>(create: (context) => sl<CategoryBloc>()),
+        BlocProvider<SearchBloc>(create: (context) => sl<SearchBloc>()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(428, 926), // Figma dizayn o‘lchami

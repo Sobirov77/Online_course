@@ -6,14 +6,16 @@ abstract class ConfirmEmailEvent extends Equatable {
 }
 
 class SendConfirmCodeEvent extends ConfirmEmailEvent {
-  final String userId;
-  final String code;
+  final int user_id;
+  final int code;
+  final bool isResetPassword;
 
   SendConfirmCodeEvent({
-    required this.userId,
+    required this.user_id,
     required this.code,
+    required this.isResetPassword,
   });
 
   @override
-  List<Object?> get props => [userId, code];
+  List<Object?> get props => [user_id, code];
 }

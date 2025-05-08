@@ -10,9 +10,16 @@ abstract class AuthRepository {
   });
 
   Future<ConfirmEmail> confirmEmail({
-    required String user_id,
-    required String code,
+    required int user_id,
+    required int code,
+    required bool isResetPassword,
   });
 
   Future<ResetPassword> resetPassword({required String email});
+
+  Future<void> createNewPassword({required String newPassword, required String token});
+
+  Future<ConfirmEmail> loginUser({required String email, required String password});
+
+  Future<void> logoutUser({required String refreshToken});
 }

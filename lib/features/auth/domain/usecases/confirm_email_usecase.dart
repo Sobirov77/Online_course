@@ -8,12 +8,14 @@ class ConfirmEmailUseCase {
   ConfirmEmailUseCase(this.repository);
 
   Future<ConfirmEmail> call({
-    required String user_id,
-    required String code,
+    required int user_id,
+    required int code,
+    required bool isResetPassword,
   }) async {
-    if (user_id.isEmpty || code.isEmpty) {
-      throw Exception('All fields must be non-empty');
-    }
-    return await repository.confirmEmail(user_id: user_id, code: code);
+    return await repository.confirmEmail(
+      user_id: user_id,
+      code: code,
+      isResetPassword: isResetPassword,
+    );
   }
 }

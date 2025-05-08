@@ -14,6 +14,7 @@ import '../../features/auth/presentation/pages/finger_print.dart';
 import '../../features/auth/presentation/pages/forgot_password_code.dart';
 import '../../features/auth/presentation/pages/pin.dart';
 import '../../features/auth/presentation/pages/sign_in.dart';
+import '../../features/home/presentation/pages/bottom_nav_bar.dart';
 import '../../features/splash/images_page.dart';
 
 class AppRoutes {
@@ -36,10 +37,10 @@ class AppRoutes {
       case RouteNames.profile:
         return MaterialPageRoute(builder: (_) => Profile());
       case RouteNames.otp_confirm:
-        final user_id = routeSettings.arguments as int;
+        final user_id = routeSettings.arguments;
         return MaterialPageRoute(
-          builder: (_) => OtpCodeConfirmation(user_id: user_id),
-        );
+          builder: (_) => OtpCodeConfirmation(user_id: user_id as int ,
+        ));
       case RouteNames.finger_print:
         return MaterialPageRoute(builder: (_) => FingerPrint());
       case RouteNames.forgot_password:
@@ -54,6 +55,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => HomeSearch());
       case RouteNames.pin:
         return MaterialPageRoute(builder: (_) => Pin());
+      case RouteNames.bottom_nav_bar:
+        return MaterialPageRoute(builder: (_) => BottomNavBarPage());
       default:
         return _errorRoute();
     }

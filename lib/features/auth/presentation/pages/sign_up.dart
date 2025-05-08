@@ -5,7 +5,7 @@ import 'package:iconly/iconly.dart';
 import 'package:real_project/core/constants/colors.dart';
 import 'package:real_project/core/routes/route_names.dart';
 import 'package:real_project/features/auth/presentation/bloc/register/register_bloc.dart';
-import 'package:real_project/features/auth/presentation/bloc/register/register_event.dart';
+import 'package:real_project/features/auth/presentation/bloc/auth_event.dart';
 import 'package:real_project/features/auth/presentation/bloc/register/register_state.dart';
 import 'package:real_project/features/auth/presentation/widgets/or_devider.dart';
 import 'package:real_project/features/auth/presentation/widgets/small_continue_with.dart';
@@ -266,14 +266,16 @@ class _SignUpState extends State<SignUp> {
                           color: MyColors.button_color,
                         ),
                       );
-                    } else if (state is AuthLoaded) {
-                      return const Center(
-                        child: Text(
-                          'Sign-up successful! Redirecting...',
-                          style: TextStyle(color: Colors.green, fontSize: 16),
-                        ),
-                      );
-                    } else {
+                    }
+                    // else if (state is AuthLoaded) {
+                    //   return const Center(
+                    //     child: Text(
+                    //       'Sign-up successful! Redirecting...',
+                    //       style: TextStyle(color: Colors.green, fontSize: 16),
+                    //     ),
+                    //   );
+                    // }
+                    else {
                       return MyElevatedButton(
                         text: "Sign Up",
                         color: MyColors.button_color,

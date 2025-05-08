@@ -10,6 +10,7 @@ class TopMentors extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(children: [
+        SizedBox(width: 15.w,),
         TopMentors_1(image: 'assets/home/Jacob.png', text: "Jacob"),
         SizedBox(width: 16.w,),
         TopMentors_1(image: 'assets/home/Claire.png', text: "Claire"),

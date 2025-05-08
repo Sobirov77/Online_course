@@ -42,7 +42,7 @@ class _HomeFilterState extends State<HomeFilter> {
           color: isSelected? Colors.blueAccent:const Color(0xFFFFF5F5),
           border: Border.all(
             color: Colors.blue,
-            width: 2.w,
+            width: 1.w,
           ),
           borderRadius: BorderRadius.circular(20.r),
         ),

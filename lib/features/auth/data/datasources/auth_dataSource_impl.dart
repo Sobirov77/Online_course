@@ -71,13 +71,16 @@ class AuthDataSourceImpl implements AuthDataSource {
   }
 
   @override
-  Future<ConfirmEmail> confirmEmail({
-    required String user_id,
-    required String code,
+  Future<ConfrimEmailModel> confirmEmail({
+    required int user_id,
+    required int code,
+    required bool isResetPassword,
   }) async {
     try {
       final response = await dioClient.post(
-        ApiUrls.confirmEmail,
+        isResetPassword
+            ? ApiUrls.confirmEmail
+            : ApiUrls.resetPasswordConfirmCode,
         data: {'user_id': user_id, 'code': code},
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -88,5 +91,45 @@ class AuthDataSourceImpl implements AuthDataSource {
     } on DioException catch (e) {
       throw Exception(_parseDioError(e));
     }
+  }
+
+  @override
+  Future<void> createNewPassword({required String newPassword, required String token}) async {
+    try{
+      final response = await dioClient.post(ApiUrls.resetPasswordConfirmPassword,
+      data: {'password_one': newPassword}
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return print("Password Successfuly Changed");
+      }else {
+        throw Exception(_parseError(response));
+      }
+    } on DioException catch (e){
+      throw Exception(_parseDioError(e));
+    }
+  }
+
+  @override
+  Future<ConfrimEmailModel> loginUser({required String email, required String password}) async {
+    try{
+      final response = await dioClient.post(ApiUrls.login,
+      data: {'email': email, 'password': password},
+      );
+      if(response.statusCode == 200 || response.statusCode == 201) {
+        return ConfrimEmailModel.fromJson(response.data);
+      }
+      else{
+        throw Exception(_parseError(response));
+      }
+    }
+    on DioException catch (e){
+      throw Exception (_parseDioError(e));
+    }
+  }
+
+  @override
+  Future<void> logoutUser({required String refreshToken}) {
+    // TODO: implement logoutUser
+    throw UnimplementedError();
   }
 }

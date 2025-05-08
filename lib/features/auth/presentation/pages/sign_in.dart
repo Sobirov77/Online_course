@@ -135,7 +135,7 @@ class _SignInState extends State<SignIn> {
                   text: "Sign In",
                   color: MyColors.button_color,
                   onPressed: () {
-                    Navigator.pushNamed(context, RouteNames.profile);
+                    Navigator.pushNamed(context, RouteNames.bottom_nav_bar);
                   },
                   height: 58.h,
                   width: 380.w,
